@@ -1,0 +1,8 @@
+{
+  "name": "blog_front_end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PierreDV/blog_front_end.git",
+  "author": "PierreDV <p.verteuil@gmail.com>",
+  "license": "MIT"
+}
