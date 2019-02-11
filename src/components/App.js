@@ -1,7 +1,5 @@
 import React from 'react';
 
-const App = () => {
+export const App = () => {
   return <div>SmplBlg</div>
 }
-
-export default App;
