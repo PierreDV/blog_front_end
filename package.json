@@ -1,8 +1,17 @@
 {
   "name": "blog_front_end",
   "version": "1.0.0",
-  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "private": true,
   "repository": "https://github.com/PierreDV/blog_front_end.git",
   "author": "PierreDV <p.verteuil@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {}
 }
