@@ -4,9 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
-import Home from './Home';
-import { TestPage } from './TestPage';
+import Home from '../containers/Home';
 
 export const App = () => {
   return (
@@ -14,13 +12,10 @@ export const App = () => {
       <div>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/test_page">Test Page</Link></li>
         </ul>
 
         <hr/>
-
         <Route exact path="/" component={Home}/>
-        <Route exact path="/test_page" component={TestPage}/>
       </div>
     </Router>
   )
