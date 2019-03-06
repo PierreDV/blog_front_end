@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  posts: [],
+  items: [],
   isFetching: false,
   error: null
 }
@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
     return {
       ...state,
       isFetching: false,
-      posts: action.payload,
+      items: action.payload,
       error: null
     }
   default:
