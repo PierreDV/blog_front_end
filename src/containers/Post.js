@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchPost } from '../actions/index';
-// this.props.match.id
+
 class Post extends Component {
   componentDidMount() {
     this.props.fetchPost(this.props.match.params.id);
