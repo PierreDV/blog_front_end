@@ -10,11 +10,15 @@ class Home extends Component {
     this.props.fetchPostLinks();
   }
   render() {
+    const posts = this.props.posts;
     return(
       <div>
-        {this.props.posts.links.length === 0 || this.props.posts.isFetching ? <p>loading...</p> : <PostList posts={this.props.posts}/>}
+        { posts.links.length === 0 || posts.isFetching 
+          ? <p>loading...</p> 
+          : <PostList posts={posts}/>
+        }
       </div>
-    ) 
+    ); 
   } 
 }
 

@@ -8,14 +8,17 @@ class Post extends Component {
     this.props.fetchPost(this.props.match.params.id);
   }
   render() {
+    const posts = this.props.posts;
     return(
-      <div>{!this.props.posts.activePost || this.props.posts.isFetching ? 
-        <p>...loading</p> :
-        <div>
-          <h2>{this.props.posts.activePost.title}</h2>
-          <p>{this.props.posts.activePost.body_text}</p>
-        </div>
-      }</div>
+      <div>
+        { !posts.activePost || posts.isFetching 
+          ? <p>...loading</p> 
+          : <div>
+              <h2>{posts.activePost.title}</h2>
+              <p>{posts.activePost.body_text}</p>
+            </div>
+        }
+      </div>
     )
   }
 }
