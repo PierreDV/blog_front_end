@@ -1,24 +1,49 @@
-const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
-const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+const FETCH_POST_LINKS_REQUEST = 'FETCH_POST_LINKS_REQUEST';
+const FETCH_POST_LINKS_SUCCESS = 'FETCH_POST_LINKS_SUCCESS';
 
-export const fetchPosts = () => {
+const FETCH_POST_REQUEST = 'FETCH_POST_REQUEST';
+const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
+
+export const fetchPostLinks = () => {
   return dispatch => {
-    dispatch(fetchPostsRequest());
-    fetch('http://localhost:8080/api/v1/blog_posts/')
+    dispatch(fetchPostLinksRequest());
+    fetch('http://localhost:8080/api/v1/blog_posts/links')
       .then(res => res.json())
       .then(res => {
-        dispatch(fetchPostsSuccess(res));
+        dispatch(fetchPostLinksSuccess(res));
       })
   }
 }
 
-const fetchPostsRequest = () => {
-  return { type: FETCH_POSTS_REQUEST }
+const fetchPostLinksRequest = () => {
+  return { type: FETCH_POST_LINKS_REQUEST }
 }
 
-const fetchPostsSuccess = (response) => {
+const fetchPostLinksSuccess = (res) => {
   return { 
-    type: FETCH_POSTS_SUCCESS,
-    payload: response
+    type: FETCH_POST_LINKS_SUCCESS,
+    payload: res
+  }
+}
+
+export const fetchPost = (id) => {
+  return dispatch => {
+    dispatch(fetchPostRequest());
+    fetch(`http://localhost:8080/api/v1/blog_posts/${id}`)
+      .then(res => res.json())
+      .then(res => {
+        dispatch(fetchPostSuccess(res))
+      })
+  }
+}
+
+const fetchPostRequest = () => {
+  return { type: FETCH_POST_REQUEST }
+}
+
+const fetchPostSuccess = (res) => {
+  return {
+    type: FETCH_POST_SUCCESS,
+    payload: res
   }
 }

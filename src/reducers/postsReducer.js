@@ -1,22 +1,37 @@
 const INITIAL_STATE = {
-  items: [],
+  links: [],
+  activePost: null,
   isFetching: false,
   error: null
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-  case 'FETCH_POSTS_REQUEST':
+  case 'FETCH_POST_LINKS_REQUEST':
     return {
       ...state,
       isFetching: true,
       error: null
     };
-  case 'FETCH_POSTS_SUCCESS':
+  case 'FETCH_POST_LINKS_SUCCESS':
     return {
       ...state,
       isFetching: false,
-      items: action.payload,
+      links: action.payload,
+      error: null
+    }
+  case 'FETCH_POST_REQUEST':
+    return {
+      ...state,
+      activePost: null,
+      isFetching: true,
+      error: null
+    }
+  case 'FETCH_POST_SUCCESS':
+    return {
+      ...state,
+      isFetching: false,
+      activePost: action.payload,
       error: null
     }
   default:

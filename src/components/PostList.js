@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const PostList = (props) => {
-  const postLinks = props.posts.items.rows.map((post) => {
-    return <li key={post.id}>{post.title}</li>
+  const postLinks = props.posts.links.rows.map((post) => {
+    return(
+      <li key={post.id}><Link to={`/blog_posts/${post.id}`}>{post.title}</Link></li>
+    ) 
   })
   return <ul>{postLinks}</ul>
 }
