@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPostLinks } from '../actions/index';
-
 import { PostList } from '../components/PostList';
 
 class Home extends Component {
@@ -13,7 +12,7 @@ class Home extends Component {
     const posts = this.props.posts;
     return(
       <div>
-        { posts.links.length === 0 || posts.isFetching 
+        { posts.links === [] || posts.isFetching 
           ? <p>loading...</p> 
           : <PostList posts={posts}/>
         }
