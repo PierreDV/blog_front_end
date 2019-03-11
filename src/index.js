@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import '@babel/polyfill';
 
 import rootReducer from './reducers/rootReducer';
 import App from './components/App';

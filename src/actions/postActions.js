@@ -8,63 +8,37 @@ import {
 } from './types';
 
 export const fetchPostLinks = () => dispatch => {
-  dispatch(fetchPostLinksRequest());
+  dispatch({ type: FETCH_POST_LINKS_REQUEST });
   fetch('http://localhost:8080/api/v1/blog_posts/links')
     .then(res => res.json())
     .then(res => {
-      dispatch(fetchPostLinksSuccess(res));
+      dispatch({ 
+        type: FETCH_POST_LINKS_SUCCESS,
+        payload: res
+      });
     })
     .catch(error => {
-      dispatch(fetchPostLinksError(error.message));
+      dispatch({
+        type: FETCH_POST_LINKS_ERROR,
+        error: error.message
+      });
     });
-};
-
-
-const fetchPostLinksRequest = () => {
-  return { type: FETCH_POST_LINKS_REQUEST };
-};
-
-const fetchPostLinksSuccess = res => {
-  return { 
-    type: FETCH_POST_LINKS_SUCCESS,
-    payload: res
-  };
-};
-
-const fetchPostLinksError = error => {
-  return {
-    type: FETCH_POST_LINKS_ERROR,
-    error
-  };
 };
 
 export const fetchPost = id => dispatch => {
-  dispatch(fetchPostRequest());
+  dispatch({ type: FETCH_POST_REQUEST });
   fetch(`http://localhost:8080/api/v1/blog_posts/${id}`)
     .then(res => res.json())
     .then(res => {
-      dispatch(fetchPostSuccess(res))
+      dispatch({
+        type: FETCH_POST_SUCCESS,
+        payload: res
+      })
     })
     .catch(error => {
-      dispatch(fetchPostError(error.message));
+      dispatch({
+        type: FETCH_POST_ERROR,
+        error: error.message
+      });
     });
-};
-
-
-const fetchPostRequest = () => {
-  return { type: FETCH_POST_REQUEST };
-};
-
-const fetchPostSuccess = res => {
-  return {
-    type: FETCH_POST_SUCCESS,
-    payload: res
-  };
-};
-
-const fetchPostError = error => {
-  return {
-    type: FETCH_POST_ERROR,
-    error
-  };
 };

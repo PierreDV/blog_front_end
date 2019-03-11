@@ -1,4 +1,7 @@
-import { AUTH_USER_SUCCESS } from "../actions/types";
+import { 
+  AUTH_USER_SUCCESS, 
+  AUTH_USER_ERROR 
+} from "../actions/types";
 
 const INITIAL_STATE = {
   authenticated: '',
@@ -8,7 +11,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case AUTH_USER_SUCCESS:
-    return { ...state, authenticated:action.payload }
+    console.log(action.payload)
+    return { ...state, authenticated: action.payload }
+  case AUTH_USER_ERROR:
+    return { ...state, authenticated: '', errorMessage: action.error }
   default:
     return state;
   }
