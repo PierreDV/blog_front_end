@@ -9,6 +9,11 @@ class Post extends Component {
   }
   render() {
     const posts = this.props.posts;
+    if (posts.errorMessage) {
+      return (
+        <div>{posts.errorMessage}</div>
+      );
+    }
     return(
       <div>
         { !posts.activePost || posts.isFetching 

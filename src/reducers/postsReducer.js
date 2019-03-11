@@ -2,7 +2,7 @@ const INITIAL_STATE = {
   links: [],
   activePost: null,
   isFetching: false,
-  error: null
+  errorMessage: ''
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -11,28 +11,42 @@ export default (state = INITIAL_STATE, action) => {
     return {
       ...state,
       isFetching: true,
-      error: null
+      errorMessage: null
     };
   case 'FETCH_POST_LINKS_SUCCESS':
     return {
       ...state,
       isFetching: false,
       links: action.payload,
-      error: null
+      errorMessage: null
+    }
+  case 'FETCH_POST_LINKS_ERROR':
+    return {
+      ...state,
+      isFetching: false,
+      links: [],
+      errorMessage: action.error
     }
   case 'FETCH_POST_REQUEST':
     return {
       ...state,
       activePost: null,
       isFetching: true,
-      error: null
+      errorMessage: null
     }
   case 'FETCH_POST_SUCCESS':
     return {
       ...state,
       isFetching: false,
       activePost: action.payload,
-      error: null
+      errorMessage: null
+    }
+  case 'FETCH_POST_ERROR':
+    return {
+      ...state,
+      isFetching: false,
+      activePost: null,
+      errorMessage: action.error
     }
   default:
     return state;

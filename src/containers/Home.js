@@ -10,6 +10,11 @@ class Home extends Component {
   }
   render() {
     const posts = this.props.posts;
+    if (posts.errorMessage) {
+      return(
+        <div>{posts.errorMessage}</div>
+      );
+    }
     return(
       <div>
         <h1>SmplBlg</h1>
