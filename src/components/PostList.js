@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const PostList = (props) => {
+export default (props) => {
   const postLinks = props.posts.links.rows.map((post) => {
     return(
       <li key={post.id}>

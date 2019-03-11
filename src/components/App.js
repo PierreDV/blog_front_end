@@ -5,15 +5,14 @@ import {
   Link
 } from 'react-router-dom';
 import Home from '../containers/Home';
+import Header from './Header';
 import Post from '../containers/Post';
 
-export const App = () => {
+export default () => {
   return (
     <Router>
       <div>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-        </ul>
+        <Header />
 
         <hr/>
         <Route exact path='/' component={Home} />

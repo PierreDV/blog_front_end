@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPostLinks } from '../actions/index';
-import { PostList } from '../components/PostList';
+import PostList from '../components/PostList';
 
 class Home extends Component {
   componentDidMount() {
