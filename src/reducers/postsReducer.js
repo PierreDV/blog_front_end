@@ -5,7 +5,7 @@ import {
   FETCH_POST_REQUEST,
   FETCH_POST_SUCCESS,
   FETCH_POST_ERROR
-} from '../actions/index';
+} from '../actions/types';
 
 const INITIAL_STATE = {
   links: [],
