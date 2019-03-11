@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   activePost: null,
   isFetching: false,
   errorMessage: ''
-}
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
@@ -60,4 +60,4 @@ export default (state = INITIAL_STATE, action) => {
   default:
     return state;
   }
-}
+};

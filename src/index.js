@@ -9,7 +9,7 @@ import rootReducer from './reducers/rootReducer';
 import App from './components/App';
 import Home from './containers/Home';
 import Post from './containers/Post';
-import Signup from './components/auth/Signup';
+import Signup from './containers/auth/Signup';
 
 ReactDOM.render(
   <Provider store={createStore(rootReducer, applyMiddleware(ReduxThunk))}>
