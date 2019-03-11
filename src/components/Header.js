@@ -11,7 +11,7 @@ class Header extends Component {
         <Link to="/signout">Sign Out</Link>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Header;
