@@ -12,7 +12,7 @@ class Home extends Component {
     const posts = this.props.posts;
     return(
       <div>
-        { posts.links === [] || posts.isFetching 
+        { posts.links.length === 0 || posts.isFetching 
           ? <p>loading...</p> 
           : <PostList posts={posts}/>
         }
