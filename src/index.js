@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import rootReducer from './reducers/rootReducer';
 
+import rootReducer from './reducers/rootReducer';
 import App from './components/App';
 import Home from './containers/Home';
 import Post from './containers/Post';
