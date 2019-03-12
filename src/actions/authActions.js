@@ -5,21 +5,14 @@ import {
 } from './types';
 
 export const signup = (formProps) => async dispatch => {
-  fetch('http://localhost:8080/api/v1/users/', {
+  const response = await fetch('http://localhost:8080/api/v1/users/', {
     method: "POST",
     body: JSON.stringify(formProps),
     headers:{
       'Content-Type': 'application/json'
     }
   })
-  .then(res => res.json())
-  .then(res => {
-    dispatch({ type: AUTH_USER_SUCCESS, payload: res.token })
-  })
-  .catch(error => {
-    dispatch({
-      type: AUTH_USER_ERROR,
-      error: error.message
-    })
-  })
+  const json = await response.json();
+  dispatch({ type: AUTH_USER_SUCCESS, payload: json.token })
+
 };
