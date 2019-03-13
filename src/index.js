@@ -11,13 +11,15 @@ import App from './components/App';
 import Home from './containers/Home';
 import Post from './containers/Post';
 import Signup from './containers/auth/Signup';
+import CreatePostForm from './containers/CreatePostForm';
 
 ReactDOM.render(
   <Provider store={createStore(rootReducer, applyMiddleware(ReduxThunk))}>
     <BrowserRouter>
       <App>
         <Route exact path='/' component={Home} />
-        <Route path="/signup" component={Signup} />
+        <Route path='/signup' component={Signup} />
+        <Route path='/blog_posts/new' component={CreatePostForm} />
         <Route path='/blog_posts/:id' component={Post} />
       </App>
     </BrowserRouter>
