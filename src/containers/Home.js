@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPostLinks } from '../actions/postActions';
-import PostList from '../components/PostList';
+import { fetchPostLinks } from 'actions/postActions';
+import PostList from 'components/PostList';
 
 class Home extends Component {
   componentDidMount() {

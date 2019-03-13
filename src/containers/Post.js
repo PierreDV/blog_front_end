@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchPost } from '../actions/postActions';
+import { fetchPost } from 'actions/postActions';
 
 class Post extends Component {
   componentDidMount() {

@@ -12,6 +12,13 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  resolve: {
+    modules: [path.resolve(__dirname, './src'), 'node_modules'],
+    extensions: ['.js','.jsx', '.json'],
+    alias: {
+      reducers: path.resolve(__dirname, './src/reducers')
+    }
+  },
   module: {
     rules: [
       {
