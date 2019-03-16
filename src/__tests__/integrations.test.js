@@ -1,15 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router';
+import fetchMock from 'fetch-mock';
+import Root from 'Root';
 import App from 'components/App';
 import Home from 'containers/Home';
-import { testNameToKey } from 'jest-snapshot/build/utils';
+
+beforeEach(() => {
+  fetchMock.get(
+    'http://localhost:8080/api/v1/blog_posts/links',
+    200
+  );
+});
 
 test('App should render Home component', () => {
   const component = mount(
-    <MemoryRouter>
+    <Root>
       <App />
-    </MemoryRouter>
+    </Root>
   );
 
   expect(component.find(Home)).toHaveLength(1);
