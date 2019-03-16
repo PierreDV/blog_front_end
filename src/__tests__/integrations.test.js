@@ -12,19 +12,18 @@ beforeEach(() => {
     'http://localhost:8080/api/v1/blog_posts/links',
     { status: 200 }
   );
-});
-
-afterEach(() => {
-  fetchMock.restore();
-  component.unmount();
-});
-
-test('App should render Home component', () => {
   component = mount(
     <Root>
       <App />
     </Root>
   );
+});
 
+afterEach(() => {
+  component.unmount();
+  fetchMock.restore();
+});
+
+test('App should render Home component', () => {
   expect(component.find(Home)).toHaveLength(1);
 });
