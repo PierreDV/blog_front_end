@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { 
   AUTH_USER_REQUEST,
   AUTH_USER_SUCCESS,
@@ -6,21 +8,18 @@ import {
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
-    const response = await fetch('http://localhost:8080/api/v1/users/', {
-      method: "POST",
-      body: JSON.stringify(formProps),
-      headers:{
-        'Content-Type': 'application/json'
-      }
+    dispatch({ type: AUTH_USER_REQUEST });
+    const response = await axios.post('http://localhost:8080/api/v1/users/', formProps);
+    if(!response.ok) throw response;
+    dispatch({ 
+      type: AUTH_USER_SUCCESS, 
+      payload: response.token 
     });
-    if(!response.ok) {
-      throw response;
-    }
-    const json = await response.json();
-    dispatch({ type: AUTH_USER_SUCCESS, payload: json.token });
     callback();
   } catch(error) {
-    const json = await error.json();
-    dispatch({ type: AUTH_USER_ERROR, payload: json.message });
+    dispatch({ 
+      type: AUTH_USER_ERROR, 
+      payload: error.message 
+    });
   }
 };
