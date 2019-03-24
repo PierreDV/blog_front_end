@@ -17,14 +17,17 @@ afterEach(() => {
   moxios.uninstall();
 });
 
-it('renders links to fetched posts', () => {
+it('renders links to fetched posts', (done) => {
   const wrapped = mount(
     <Root>
       <App />
     </Root>
   );
-  setTimeout(() => {
-    expect(wrapped.find('.post-links').length).toEqual(1);
-  }, 100);
 
+  moxios.wait(() => {
+    wrapped.update();
+    expect(wrapped.find('.post-links').length).toEqual(1);
+    done();
+    wrapped.unmount();
+  });
 });
