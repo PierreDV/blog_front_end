@@ -2,6 +2,7 @@ module.exports = {
   clearMocks: true,
   collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
   coverageDirectory: 'coverage',
+  modulePaths: ["src"],
   moduleFileExtensions: ['js', 'json', 'jsx'],
   setupFiles: ['<rootDir>/enzyme.config.js'],
   testEnvironment: 'jsdom',

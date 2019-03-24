@@ -17,7 +17,7 @@ export default({ children, initialState={} }) => {
   const store= createStore(
     rootReducer,
     initialState,
-    applyMiddleware(reduxThunk, logger)
+    applyMiddleware(reduxThunk)
   );
 
   return(
