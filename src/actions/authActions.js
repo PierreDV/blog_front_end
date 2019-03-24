@@ -10,7 +10,7 @@ export const signup = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
     const response = await axios.post('http://localhost:8080/api/v1/users/', formProps);
-    if(!response.ok) throw response;
+    if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: AUTH_USER_SUCCESS, 
       payload: response.token 

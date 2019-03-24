@@ -3,8 +3,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route} from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-import rootReducer from 'reducers/rootReducer';
+import logger from 'redux-logger';
+import '@babel/polyfill';
 
+import rootReducer from 'reducers/rootReducer';
 import App from 'components/App';
 import Home from './containers/Home';
 import Post from './containers/Post';
@@ -15,7 +17,7 @@ export default({ children, initialState={} }) => {
   const store= createStore(
     rootReducer,
     initialState,
-    applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk, logger)
   );
 
   return(
