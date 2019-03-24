@@ -18,16 +18,16 @@ afterEach(() => {
 });
 
 it('renders links to fetched posts', (done) => {
-  const wrapped = mount(
+  const component = mount(
     <Root>
       <App />
     </Root>
   );
 
   moxios.wait(() => {
-    wrapped.update();
-    expect(wrapped.find('.post-links').length).toEqual(1);
+    component.update();
+    expect(component.find('.post-links').length).toEqual(1);
     done();
-    wrapped.unmount();
+    component.unmount();
   });
 });
