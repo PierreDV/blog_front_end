@@ -9,7 +9,12 @@ beforeEach(() => {
   moxios.install();
   moxios.stubRequest('http://localhost:8080/api/v1/blog_posts/links', {
     status: 200,
-    response: { rows: [{ id: "a5fhre85", title: "Breaking the pretzel market" }] }
+    response: { 
+      rows: [
+        { id: "a5fhre85", title: "Breaking the pretzel market" }, 
+        { id: "bhdtg37", title: "Shaving your bear: a complete guide" }
+      ] 
+    }
   });
 });
 
@@ -26,7 +31,7 @@ it('renders links to fetched posts', (done) => {
 
   moxios.wait(() => {
     component.update();
-    expect(component.find('.post-links').length).toEqual(1);
+    expect(component.find('.post-links').length).toEqual(2);
     done();
     component.unmount();
   });
