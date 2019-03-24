@@ -12,7 +12,6 @@ export const fetchPostLinks = () => async dispatch => {
   try {
     dispatch({ type: FETCH_POST_LINKS_REQUEST });
     const response = await axios.get('http://localhost:8080/api/v1/blog_posts/links');
-    console.log(response)
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_LINKS_SUCCESS, 
