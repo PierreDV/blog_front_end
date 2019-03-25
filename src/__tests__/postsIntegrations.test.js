@@ -37,7 +37,7 @@ it('renders links to fetched posts with the correct text', (done) => {
     component.update();
     const postLinks = component.find('.post-links');
     
-    expect(postLinks.length).toEqual(2);
+    expect(postLinks.length).toEqual(mockedJSON.length);
     
     postLinks.forEach(link => {
       expect(titles.includes(link.text())).toEqual(true);
