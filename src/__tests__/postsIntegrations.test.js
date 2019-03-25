@@ -9,7 +9,7 @@ let component;
 const mockedJSON = [
   { id: "a5fhre85", title: "Breaking the pretzel market" }, 
   { id: "bhdtg37", title: "Shaving your bear: a complete guide" }
-]
+];
 const titles = mockedJSON.map(record => record.title);
 
 beforeEach(() => {
