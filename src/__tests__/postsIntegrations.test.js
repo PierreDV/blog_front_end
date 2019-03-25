@@ -5,10 +5,12 @@ import moxios from 'moxios';
 import Root from 'Root';
 import App from 'components/App';
 
+let component;
 const mockedJSON = [
   { id: "a5fhre85", title: "Breaking the pretzel market" }, 
   { id: "bhdtg37", title: "Shaving your bear: a complete guide" }
 ]
+const titles = mockedJSON.map(record => record.title);
 
 beforeEach(() => {
   moxios.install();
@@ -18,24 +20,23 @@ beforeEach(() => {
       rows: mockedJSON
     }
   });
-});
-
-afterEach(() => {
-  moxios.uninstall();
-});
-
-it('renders links to fetched posts', (done) => {
-  const component = mount(
+  component = mount(
     <Root>
       <App />
     </Root>
   );
+});
 
+afterEach(() => {
+  component.unmount();
+  moxios.uninstall();
+});
+
+it('renders links to fetched posts with the correct text', (done) => {
   moxios.wait(() => {
     component.update();
     const postLinks = component.find('.post-links');
-    const titles = mockedJSON.map(record => record.title);
-
+    
     expect(postLinks.length).toEqual(2);
     
     postLinks.forEach(link => {
@@ -43,6 +44,5 @@ it('renders links to fetched posts', (done) => {
     });
 
     done();
-    component.unmount();
   });
 });
