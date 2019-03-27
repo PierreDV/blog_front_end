@@ -15,6 +15,7 @@ export const signup = (formProps, callback) => async dispatch => {
       type: AUTH_USER_SUCCESS, 
       payload: response.data.token 
     });
+    localStorage.setItem('token', response.data.token);
     callback();
   } catch(error) {
     dispatch({ 

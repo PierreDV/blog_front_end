@@ -13,7 +13,7 @@ import Post from './containers/Post';
 import Signup from './containers/auth/Signup';
 import CreatePostForm from './containers/CreatePostForm';
 
-export default({ children, initialState={} }) => {
+export default({ initialState={} }) => {
   const store= createStore(
     rootReducer,
     initialState,
