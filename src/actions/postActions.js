@@ -15,7 +15,7 @@ export const fetchPostLinks = () => async dispatch => {
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_LINKS_SUCCESS, 
-      payload: response.data 
+      payload: response.data.rows 
     });
   } catch(error) {
     dispatch({ 
