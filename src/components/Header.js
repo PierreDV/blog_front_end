@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <div>
         <Link to="/">SmplBlg</Link>
-        <Link to="/blog_posts/new">New Post</Link>
+        <Link to="/new_post">New Post</Link>
         <Link to="/signup">Sign Up</Link>
         <Link to="/signin">Sign In</Link>
         <Link to="/signout">Sign Out</Link>

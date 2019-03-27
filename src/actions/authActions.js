@@ -13,7 +13,7 @@ export const signup = (formProps, callback) => async dispatch => {
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: AUTH_USER_SUCCESS, 
-      payload: response.token 
+      payload: response.data.token 
     });
     callback();
   } catch(error) {

@@ -17,7 +17,7 @@ export default({ children, initialState={} }) => {
   const store= createStore(
     rootReducer,
     initialState,
-    applyMiddleware(reduxThunk)
+    applyMiddleware(reduxThunk, logger)
   );
 
   return(
@@ -26,7 +26,7 @@ export default({ children, initialState={} }) => {
         <App>
           <Route exact path='/' component={Home} />
           <Route path='/signup' component={Signup} />
-          <Route path='/blog_posts/new' component={CreatePostForm} />
+          <Route path='/new_post' component={CreatePostForm} />
           <Route path='/blog_posts/:id' component={Post} />
         </App>
       </BrowserRouter>
