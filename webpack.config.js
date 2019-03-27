@@ -6,11 +6,13 @@ module.exports = {
   entry: './src/index.js',
   devServer: {
     contentBase: './dist',
-    port: '3000'
+    port: '3000',
+    historyApiFallback: true
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   resolve: {
     modules: [path.resolve(__dirname, './src'), 'node_modules'],
