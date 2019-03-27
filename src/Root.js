@@ -6,12 +6,13 @@ import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import '@babel/polyfill';
 
-import rootReducer from 'reducers/rootReducer';
-import App from 'components/App';
+import rootReducer from './reducers/rootReducer';
+import App from './components/App';
 import Home from './containers/Home';
 import Post from './containers/Post';
 import Signup from './containers/auth/Signup';
 import Signout from './containers/auth/Signout';
+import Signin from './containers/auth/Signin';
 import CreatePostForm from './containers/CreatePostForm';
 
 export default({ initialState={} }) => {
@@ -27,6 +28,7 @@ export default({ initialState={} }) => {
         <App>
           <Route exact path='/' component={Home} />
           <Route path='/signup' component={Signup} />
+          <Route path='/signin' component={Signin} />
           <Route path='/signout' component={Signout} />
           <Route path='/new_post' component={CreatePostForm} />
           <Route path='/blog_posts/:id' component={Post} />

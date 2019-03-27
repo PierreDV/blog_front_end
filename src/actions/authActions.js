@@ -9,8 +9,35 @@ import {
 export const signup = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
-    const response = await axios.post('http://localhost:8080/api/v1/users/', formProps);
+    const response = await axios.post(
+      'http://localhost:8080/api/v1/users/', 
+      formProps
+    );
     if(!response.statusText === "OK") throw response;
+    
+    dispatch({ 
+      type: AUTH_USER_SUCCESS, 
+      payload: response.data.token 
+    });
+    localStorage.setItem('token', response.data.token);
+    callback();
+  } catch(error) {
+    dispatch({ 
+      type: AUTH_USER_ERROR, 
+      payload: error.message 
+    });
+  }
+};
+
+export const signin = (formProps, callback) => async dispatch => {
+  try {
+    dispatch({ type: AUTH_USER_REQUEST });
+    const response = await axios.post(
+      'http://localhost:8080/api/v1/users/login', 
+      formProps
+    );
+    if(!response.statusText === "OK") throw response;
+
     dispatch({ 
       type: AUTH_USER_SUCCESS, 
       payload: response.data.token 
