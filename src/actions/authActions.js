@@ -24,3 +24,11 @@ export const signup = (formProps, callback) => async dispatch => {
     });
   }
 };
+
+export const singout = () => {
+  localStorage.clearItem('token');
+  return {
+    type: AUTH_USER_SUCCESS,
+    payload: ''
+  };
+};
