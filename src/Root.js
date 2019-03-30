@@ -9,11 +9,11 @@ import '@babel/polyfill';
 import rootReducer from './reducers/rootReducer';
 import App from './components/App';
 import Home from './containers/Home';
-import Post from './containers/Post';
+import Post from './containers/post/Post';
 import Signup from './containers/auth/Signup';
 import Signout from './containers/auth/Signout';
 import Signin from './containers/auth/Signin';
-import CreatePostForm from './containers/CreatePostForm';
+import CreatePostForm from './containers/post/CreatePostForm';
 
 export default({ initialState={} }) => {
   const store= createStore(
