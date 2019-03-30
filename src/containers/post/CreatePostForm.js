@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import ReactMDE from 'redux-forms-markdown-editor';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createPost } from 'actions/postActions';
@@ -30,7 +31,7 @@ class CreatePost extends Component {
           <Field 
             name="body_text"
             type="text"
-            component="input"
+            component={ReactMDE}
             autoComplete="none"
           />
         </fieldset>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchPost } from 'actions/postActions';
+import ReactMarkdown from 'react-markdown';
 
 class Post extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class Post extends Component {
           ? <p>...loading</p> 
           : <div>
               <h2>{posts.activePost.title}</h2>
-              <p>{posts.activePost.body_text}</p>
+              <ReactMarkdown source={posts.activePost.body_text} />
             </div>
         }
       </div>
