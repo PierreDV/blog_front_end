@@ -13,7 +13,7 @@
     "watch": "webpack --watch"
   },
   "private": true,
-  "repository": "https://github.com/PierreDV/blog_front_end.git",
+  "repository": "git@github.com:PierreDV/blog_front_end.git",
   "author": "PierreDV <p.verteuil@gmail.com>",
   "license": "MIT",
   "devDependencies": {

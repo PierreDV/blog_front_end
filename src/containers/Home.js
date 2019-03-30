@@ -18,7 +18,7 @@ class Home extends Component {
       <div>
         <h1>SmplBlg</h1>
         { posts.links.length === 0 || posts.isFetching 
-          ? <p>loading...</p> 
+          ? <p>loading....</p> 
           : <PostList posts={posts}/>
         }
       </div>
