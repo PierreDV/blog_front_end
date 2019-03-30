@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "homepage": "http://PierreDV.github.io/blog_front_end",
   "scripts": {
-    "pre-deploy": "yarn run build",
     "deploy": "gh-pages -d dist",
     "build": "webpack",
     "dev-start": "webpack-dev-server",
@@ -13,7 +12,7 @@
     "watch": "webpack --watch"
   },
   "private": true,
-  "repository": "git@github.com:PierreDV/blog_front_end.git",
+  "repository": "https://github.com/PierreDV/blog_front_end.git",
   "author": "PierreDV <p.verteuil@gmail.com>",
   "license": "MIT",
   "devDependencies": {
