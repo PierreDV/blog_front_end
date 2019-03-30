@@ -12,7 +12,7 @@ export const signup = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
     const response = await axios.post(
-      `${backEndUrl}/api/v1/users/`, 
+      `${process.env.BACK_END_URL}/api/v1/users/`, 
       formProps
     );
     if(!response.statusText === "OK") throw response;
@@ -35,7 +35,7 @@ export const signin = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
     const response = await axios.post(
-      `${backEndUrl}/api/v1/users/login`, 
+      `${process.env.BACK_END_URL}/api/v1/users/login`, 
       formProps
     );
     if(!response.statusText === "OK") throw response;
