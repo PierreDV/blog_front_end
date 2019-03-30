@@ -31,8 +31,4 @@ const mapStateToProps = ({ posts }) => {
   return { posts };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ fetchPostLinks }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, { fetchPostLinks })(Home);
