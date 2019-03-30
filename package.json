@@ -1,7 +1,10 @@
 {
   "name": "blog_front_end",
   "version": "1.0.0",
+  "homepage": "http://PierreDV.github.io/blog_front_end",
   "scripts": {
+    "pre-deploy": "yarn run build",
+    "deploy": "gh-pages -d dist",
     "build": "webpack",
     "dev-start": "webpack-dev-server",
     "test": "jest",
@@ -38,6 +41,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",

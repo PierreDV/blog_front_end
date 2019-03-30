@@ -11,10 +11,12 @@ import {
   CREATE_POST_FAILURE
 } from './types';
 
+const backEndUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : process.env.BACK_END_URL;
+
 export const fetchPostLinks = () => async dispatch => {
   try {
     dispatch({ type: FETCH_POST_LINKS_REQUEST });
-    const response = await axios.get('http://localhost:8080/api/v1/blog_posts/links');
+    const response = await axios.get(`${backEndUrl}/api/v1/blog_posts/links`);
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_LINKS_SUCCESS, 
@@ -31,7 +33,7 @@ export const fetchPostLinks = () => async dispatch => {
 export const fetchPost = id => async dispatch => {
   try {
     dispatch({ type: FETCH_POST_REQUEST });
-    const response = await axios.get(`http://localhost:8080/api/v1/blog_posts/${id}`);
+    const response = await axios.get(`${backEndUrl}/api/v1/blog_posts/${id}`);
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_SUCCESS, 
@@ -50,7 +52,7 @@ export const createPost = (formProps, callback) => async (dispatch, getState) =>
     const { auth } = getState();
     dispatch({ type: CREATE_POST_REQUEST });
     const response = await axios.post(
-      'http://localhost:8080/api/v1/blog_posts/',
+      `${backEndUrl}/api/v1/blog_posts/`,
       formProps,
       {
         headers: {
