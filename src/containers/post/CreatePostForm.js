@@ -3,6 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import ReactMDE from 'redux-forms-markdown-editor';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import requireAuth from 'containers/requireAuth';
 import { createPost } from 'actions/postActions';
 
 class CreatePost extends Component {
@@ -51,4 +52,4 @@ function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps, { createPost }),
   reduxForm({ form: 'createPost' })
-)(CreatePost);
+)(requireAuth(CreatePost));
