@@ -8,7 +8,7 @@ class Home extends Component {
     this.props.fetchPostLinks();
   }
   render() {
-    const posts = this.props.posts;
+    const { posts } = this.props;
     if (posts.errorMessage) {
       return(
         <div>{posts.errorMessage}</div>

@@ -9,7 +9,7 @@ class Post extends Component {
     this.props.fetchPost(this.props.match.params.id);
   }
   render() {
-    const posts = this.props.posts;
+    const { posts } = this.props;
     if (posts.errorMessage) {
       return (
         <div>{posts.errorMessage}</div>

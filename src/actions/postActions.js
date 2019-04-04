@@ -7,8 +7,7 @@ import {
   FETCH_POST_SUCCESS,
   FETCH_POST_ERROR,
   CREATE_POST_REQUEST,
-  CREATE_POST_SUCCESS,
-  CREATE_POST_FAILURE
+  CREATE_POST_ERROR
 } from './types';
 
 const backEndUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : process.env.BACK_END_URL;

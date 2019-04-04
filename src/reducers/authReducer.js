@@ -3,7 +3,8 @@ import {
   AUTH_USER_ERROR,
   CREATE_USER_SUCCESS,
   CONFIRM_EMAIL_SUCCESS,
-  CONFIRM_EMAIL_ERROR 
+  CONFIRM_EMAIL_ERROR,
+  CLEAR_ERROR_MESSAGE
 } from "actions/types";
 
 const INITIAL_STATE = {
@@ -24,6 +25,8 @@ export default (state = INITIAL_STATE, action) => {
     return { ...state, authenticated: action.payload.token, isAdmin: action.payload.isAdmin }
   case CONFIRM_EMAIL_ERROR:
     return { ...state, errorMessage: action.payload }
+  case CLEAR_ERROR_MESSAGE:
+    return { ...state, errorMessage: ''}
   default:
     return state;
   }

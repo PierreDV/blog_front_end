@@ -4,7 +4,8 @@ import {
   FETCH_POST_LINKS_ERROR,
   FETCH_POST_REQUEST,
   FETCH_POST_SUCCESS,
-  FETCH_POST_ERROR
+  FETCH_POST_ERROR,
+  CLEAR_ERROR_MESSAGE
 } from 'actions/types';
 
 const INITIAL_STATE = {
@@ -57,6 +58,8 @@ export default (state = INITIAL_STATE, action) => {
       activePost: null,
       errorMessage: action.error
     }
+  case CLEAR_ERROR_MESSAGE:
+    return { ...state, errorMessage: ''}
   default:
     return state;
   }
