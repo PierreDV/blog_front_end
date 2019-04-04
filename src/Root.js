@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import '@babel/polyfill';
 
 import rootReducer from './reducers/rootReducer';
-import App from './components/App';
+import App from './containers/App';
 import Home from './containers/Home';
 import Post from './containers/post/Post';
 import Signup from './containers/auth/Signup';
