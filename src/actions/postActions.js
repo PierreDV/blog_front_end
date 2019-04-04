@@ -25,7 +25,7 @@ export const fetchPostLinks = () => async dispatch => {
   } catch(error) {
     dispatch({ 
       type: FETCH_POST_LINKS_ERROR, 
-      error: error.message 
+      error: error.response.data.message
     });
   }
 }
@@ -42,7 +42,7 @@ export const fetchPost = id => async dispatch => {
   } catch(error) {
     dispatch({ 
       type: FETCH_POST_ERROR, 
-      error: error.message 
+      error: error.response.data.message
     });
   }
 };
@@ -64,7 +64,7 @@ export const createPost = (formProps, callback) => async (dispatch, getState) =>
   } catch(error) {
     dispatch({ 
       type: CREATE_POST_ERROR, 
-      payload: error.message 
+      payload: error.response.data.message 
     });
   }
 };

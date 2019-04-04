@@ -13,6 +13,7 @@ import Post from './containers/post/Post';
 import Signup from './containers/auth/Signup';
 import Signout from './containers/auth/Signout';
 import Signin from './containers/auth/Signin';
+import Confirmation from './containers/auth/Confirmation';
 import CreatePostForm from './containers/post/CreatePostForm';
 
 export default({ initialState={} }) => {
@@ -32,6 +33,7 @@ export default({ initialState={} }) => {
           <Route path='/signout' component={Signout} />
           <Route path='/new_post' component={CreatePostForm} />
           <Route path='/blog_posts/:id' component={Post} />
+          <Route path='/confirmation' component={Confirmation} />
         </App>
       </BrowserRouter>
     </Provider>
