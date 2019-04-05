@@ -16,11 +16,18 @@ import Signin from './containers/auth/Signin';
 import Confirmation from './containers/auth/Confirmation';
 import CreatePostForm from './containers/post/CreatePostForm';
 
+let middleWare;
+if(process.env.NODE_ENV !== 'production') {
+  middleWare = [reduxThunk, logger]
+} else {
+  middleWare = [reduxThunk]
+}
+
 export default({ initialState={} }) => {
   const store= createStore(
     rootReducer,
     initialState,
-    applyMiddleware(reduxThunk, logger)
+    applyMiddleware(...middleWare)
   );
 
   return(
