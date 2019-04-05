@@ -1,4 +1,5 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
 import { 
   AUTH_USER_REQUEST,
@@ -10,13 +11,13 @@ import {
   CONFIRM_EMAIL_ERROR
 } from './types';
 
-const backEndUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : process.env.BACK_END_URL;
+dotenv.config();
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
     const response = await axios.post(
-      `${backEndUrl}/api/v1/users/`, 
+      `${process.env.BACK_END_URL}/api/v1/users/`, 
       formProps
     );
     if(!response.statusText === "OK") throw response.message;
@@ -39,7 +40,7 @@ export const signin = (formProps, callback) => async dispatch => {
   dispatch({ type: AUTH_USER_REQUEST });
   try {
     const response = await axios.post(
-      `${backEndUrl}/api/v1/users/login`, 
+      `${process.env.BACK_END_URL}/api/v1/users/login`, 
       formProps
     );
     if(!response.statusText === "OK") throw response;
@@ -68,7 +69,7 @@ export const signout = () => {
 export const confirmEmail = (token , callback) => async dispatch => {
   try {
     const response = await axios.post(
-      `${backEndUrl}/api/v1/verify_user`,
+      `${process.env.BACK_END_URL}/api/v1/verify_user`,
       {token}
     );
     if(!response.statusText === "OK") throw response;
