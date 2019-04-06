@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import moxios from 'moxios';
 
 import Root from 'Root';
-import App from 'components/App';
+import App from 'containers/App';
 
 let component;
 const mockedJSON = [
@@ -35,8 +35,8 @@ afterEach(() => {
 it('renders links to fetched posts with the correct text', (done) => {
   moxios.wait(() => {
     component.update();
+
     const postLinks = component.find('.post-links');
-    
     expect(postLinks.length).toEqual(mockedJSON.length);
     
     postLinks.forEach(link => {

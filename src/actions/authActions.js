@@ -10,7 +10,7 @@ import {
   CONFIRM_EMAIL_ERROR
 } from './types';
 
-const backEndUrl = (process.env.NODE_ENV === 'development') ? 'http://localhost:8080' : 'https://safe-meadow-41895.herokuapp.com';
+const backEndUrl = (process.env.NODE_ENV !== 'production') ? 'http://localhost:8080' : 'https://safe-meadow-41895.herokuapp.com';
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
