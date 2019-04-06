@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -32,7 +32,7 @@ export default({ initialState={} }) => {
 
   return(
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <App>
           <Route exact path='/' component={Home} />
           <Route path='/signup' component={Signup} />
@@ -42,7 +42,7 @@ export default({ initialState={} }) => {
           <Route path='/blog_posts/:id' component={Post} />
           <Route path='/confirmation' component={Confirmation} />
         </App>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 };
