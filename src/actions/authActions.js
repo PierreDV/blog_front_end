@@ -10,11 +10,13 @@ import {
   CONFIRM_EMAIL_ERROR
 } from './types';
 
+const backEndUrl = (process.env.NODE_ENV === 'development') ? 'http://localhost:8080' : 'https://safe-meadow-41895.herokuapp.com';
+
 export const signup = (formProps, callback) => async dispatch => {
   try {
     dispatch({ type: AUTH_USER_REQUEST });
     const response = await axios.post(
-      `${process.env.BACK_END_URL}/api/v1/users/`, 
+      `${backEndUrl}/api/v1/users/`, 
       formProps
     );
     if(!response.statusText === "OK") throw response.message;
@@ -37,7 +39,7 @@ export const signin = (formProps, callback) => async dispatch => {
   dispatch({ type: AUTH_USER_REQUEST });
   try {
     const response = await axios.post(
-      `${process.env.BACK_END_URL}/api/v1/users/login`, 
+      `${backEndUrl}/api/v1/users/login`, 
       formProps
     );
     if(!response.statusText === "OK") throw response;
@@ -66,7 +68,7 @@ export const signout = () => {
 export const confirmEmail = (token , callback) => async dispatch => {
   try {
     const response = await axios.post(
-      `${process.env.BACK_END_URL}/api/v1/verify_user`,
+      `${backEndUrl}/api/v1/verify_user`,
       {token}
     );
     if(!response.statusText === "OK") throw response;
