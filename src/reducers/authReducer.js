@@ -20,11 +20,11 @@ export default (state = INITIAL_STATE, action) => {
   case AUTH_USER_SUCCESS:
     return { ...state, authenticated: action.payload.token, isAdmin: action.payload.isAdmin }
   case AUTH_USER_ERROR:
-    return { ...state, errorMessage: action.payload}
+    return { ...state, authenticated: "", errorMessage: action.payload}
   case CONFIRM_EMAIL_SUCCESS:
     return { ...state, authenticated: action.payload.token, isAdmin: action.payload.isAdmin }
   case CONFIRM_EMAIL_ERROR:
-    return { ...state, errorMessage: action.payload }
+    return { ...state, authenticated: "", errorMessage: action.payload }
   case CLEAR_ERROR_MESSAGE:
     return { ...state, errorMessage: ''}
   default:

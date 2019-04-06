@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
-import dotenv from 'dotenv';
 import '@babel/polyfill';
 
 import rootReducer from './reducers/rootReducer';
@@ -16,8 +15,6 @@ import Signout from './containers/auth/Signout';
 import Signin from './containers/auth/Signin';
 import Confirmation from './containers/auth/Confirmation';
 import CreatePostForm from './containers/post/CreatePostForm';
-
-dotenv.config();
 
 let middleWare;
 if(process.env.NODE_ENV !== 'production') {

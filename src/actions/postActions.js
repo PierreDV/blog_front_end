@@ -1,5 +1,5 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
+
 import {
   FETCH_POST_LINKS_REQUEST,
   FETCH_POST_LINKS_SUCCESS,
@@ -10,8 +10,6 @@ import {
   CREATE_POST_REQUEST,
   CREATE_POST_ERROR
 } from './types';
-
-dotenv.config();
 
 export const fetchPostLinks = () => async dispatch => {
   try {

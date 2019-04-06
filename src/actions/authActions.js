@@ -1,5 +1,4 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 
 import { 
   AUTH_USER_REQUEST,
@@ -10,8 +9,6 @@ import {
   CONFIRM_EMAIL_SUCCESS,
   CONFIRM_EMAIL_ERROR
 } from './types';
-
-dotenv.config();
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
