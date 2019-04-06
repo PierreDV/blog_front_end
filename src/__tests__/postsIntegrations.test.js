@@ -1,9 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import moxios from 'moxios';
+import dotenv from 'dotenv';
 
 import Root from 'Root';
 import App from 'containers/App';
+
+dotenv.config();
 
 let component;
 const mockedJSON = [

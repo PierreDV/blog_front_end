@@ -17,7 +17,7 @@ import Confirmation from './containers/auth/Confirmation';
 import CreatePostForm from './containers/post/CreatePostForm';
 
 let middleWare;
-if(process.env.NODE_ENV !== 'production') {
+if(process.env.NODE_ENV === 'development' ) {
   middleWare = [reduxThunk, logger]
 } else {
   middleWare = [reduxThunk]

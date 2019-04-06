@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import {
   FETCH_POST_LINKS_REQUEST,
   FETCH_POST_LINKS_SUCCESS,
@@ -11,12 +10,10 @@ import {
   CREATE_POST_ERROR
 } from './types';
 
-const backEndUrl = (process.env.NODE_ENV !== 'production') ? 'http://localhost:8080' : 'https://safe-meadow-41895.herokuapp.com';
-
 export const fetchPostLinks = () => async dispatch => {
   try {
     dispatch({ type: FETCH_POST_LINKS_REQUEST });
-    const response = await axios.get(`${backEndUrl}/api/v1/blog_posts/links`);
+    const response = await axios.get(`${process.env.BACKEND_URL}/api/v1/blog_posts/links`);
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_LINKS_SUCCESS, 
@@ -33,7 +30,7 @@ export const fetchPostLinks = () => async dispatch => {
 export const fetchPost = id => async dispatch => {
   try {
     dispatch({ type: FETCH_POST_REQUEST });
-    const response = await axios.get(`${backEndUrl}/api/v1/blog_posts/${id}`);
+    const response = await axios.get(`${process.env.BACKEND_URL}/api/v1/blog_posts/${id}`);
     if(!response.statusText === "OK") throw response;
     dispatch({ 
       type: FETCH_POST_SUCCESS, 
@@ -52,7 +49,7 @@ export const createPost = (formProps, callback) => async (dispatch, getState) =>
     const { auth } = getState();
     dispatch({ type: CREATE_POST_REQUEST });
     const response = await axios.post(
-      `${backEndUrl}/api/v1/blog_posts/`,
+      `${process.env.BACKEND_URL}/api/v1/blog_posts/`,
       formProps,
       {
         headers: {
