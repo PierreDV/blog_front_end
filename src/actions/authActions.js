@@ -80,6 +80,11 @@ export const confirmEmail = (token , callback) => async dispatch => {
       payload: response.data
     });
     callback();
+    dispatch({
+      type: CREATE_FLASH_MESSAGE,
+      category: 'info',
+      payload: 'You have successfully signed up!'
+    });
   } catch(error) {
     dispatch({ type: CONFIRM_EMAIL_ERROR });
     dispatch({ 

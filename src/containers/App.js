@@ -16,6 +16,7 @@ class App extends Component {
       <div>
         <Header />
         <hr/>
+        <h1>Cafe Caligraphy</h1>
         { this.props.children }
       </div>
     );
