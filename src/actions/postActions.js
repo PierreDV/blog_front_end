@@ -7,7 +7,8 @@ import {
   FETCH_POST_SUCCESS,
   FETCH_POST_ERROR,
   CREATE_POST_REQUEST,
-  CREATE_POST_ERROR
+  CREATE_POST_ERROR,
+  CREATE_FLASH_MESSAGE
 } from './types';
 
 export const fetchPostLinks = () => async dispatch => {
@@ -20,9 +21,11 @@ export const fetchPostLinks = () => async dispatch => {
       payload: response.data.rows 
     });
   } catch(error) {
+    dispatch({ type: FETCH_POST_LINKS_ERROR });
     dispatch({ 
-      type: FETCH_POST_LINKS_ERROR, 
-      error: error.response.data.message
+      type: CREATE_FLASH_MESSAGE, 
+      category: 'error',
+      payload: error.response.data.message
     });
   }
 }
@@ -37,9 +40,11 @@ export const fetchPost = id => async dispatch => {
       payload: response.data 
     });
   } catch(error) {
+    dispatch({ type: FETCH_POST_ERROR });
     dispatch({ 
-      type: FETCH_POST_ERROR, 
-      error: error.response.data.message
+      type: CREATE_FLASH_MESSAGE, 
+      category: 'error',
+      payload: error.response.data.message
     });
   }
 };
@@ -59,9 +64,11 @@ export const createPost = (formProps, callback) => async (dispatch, getState) =>
     );
     callback();
   } catch(error) {
+    dispatch({ type: CREATE_POST_ERROR });
     dispatch({ 
-      type: CREATE_POST_ERROR, 
-      payload: error.response.data.message 
+      type: CREATE_FLASH_MESSAGE, 
+      category: 'error',
+      payload: error.response.data.message
     });
   }
 };

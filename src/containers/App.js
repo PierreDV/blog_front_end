@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Header from 'containers/Header';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { clearErrorMessage } from 'actions/errorMessageActions';
+import { clearFlashMessage } from 'actions/flashMessageActions';
 
 class App extends Component {
   componentWillUpdate(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
-      this.props.clearErrorMessage();
+      this.props.clearFlashMessage();
     }
   }
 
@@ -22,4 +22,4 @@ class App extends Component {
   }
 };
 
-export default withRouter(connect(null, { clearErrorMessage })(App));
+export default withRouter(connect(null, { clearFlashMessage })(App));

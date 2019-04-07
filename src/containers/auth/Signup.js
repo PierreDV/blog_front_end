@@ -35,7 +35,7 @@ class Signup extends Component {
           />
         </fieldset>
         <div>
-          {this.props.errorMessage}
+          {this.props.flashMessage}
         </div>
         <button>Sign Up</button>
       </form>
@@ -44,7 +44,7 @@ class Signup extends Component {
 } 
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.errorMessage };
+  return { flashMessage: state.flashMessage.message };
 }
 
 export default compose(

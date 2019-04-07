@@ -8,15 +8,12 @@ class Home extends Component {
     this.props.fetchPostLinks();
   }
   render() {
-    const { posts } = this.props;
-    if (posts.errorMessage) {
-      return(
-        <div>{posts.errorMessage}</div>
-      );
-    }
+    const { flashMessage, posts } = this.props;
+
     return(
       <div>
         <h1>SmplBlg</h1>
+        <div>{flashMessage.message}</div>
         { posts.links.length === 0 || posts.isFetching 
           ? <p>loading...</p> 
           : <PostList posts={posts}/>
@@ -26,8 +23,8 @@ class Home extends Component {
   };
 };
 
-const mapStateToProps = ({ posts }) => {
-  return { posts };
+const mapStateToProps = ({ posts, flashMessage }) => {
+  return { posts, flashMessage };
 };
 
 export default connect(mapStateToProps, { fetchPostLinks })(Home);
