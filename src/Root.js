@@ -5,6 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import logger from 'redux-logger';
 import '@babel/polyfill';
+import 'normalize.css';
+import 'typeface-merriweather';
+import 'styles/global.scss';
 
 import rootReducer from './reducers/rootReducer';
 import App from './containers/App';
