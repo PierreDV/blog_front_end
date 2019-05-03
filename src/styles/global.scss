@@ -7,9 +7,13 @@
 }
 
 html {
-  background-color: $grey;
   color: $black;
   font-weight: 300;
-  font-family: 'Merriweather', 'Arial', sans-serif;
+  font-family: 'Lato', 'Arial', sans-serif;
   text-rendering: optimizeLegibility;
+}
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
 }

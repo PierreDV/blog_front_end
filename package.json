@@ -53,7 +53,6 @@
     "redux-form": "^8.1.0",
     "redux-forms-markdown-editor": "^1.1.8",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "typeface-merriweather": "^0.0.72"
+    "redux-thunk": "^2.3.0"
   }
 }

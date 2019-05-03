@@ -1,0 +1,22 @@
+@import "variables";
+
+.NavBar {
+  a {
+    text-decoration: none;
+    font-size: 130%;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  &__home {
+    float: left;
+    color: $peach;
+  }
+  &__main {
+    float: right;
+    margin-top: 20px;
+    a {
+      margin-left: 40px;
+      color: $grey;
+    }
+  }
+}
