@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux';
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import { fetchPost } from 'actions/postActions';
 import ReactMarkdown from 'react-markdown';
@@ -19,10 +18,10 @@ class Post extends Component {
       <div>
         { !posts.activePost || posts.isFetching 
           ? <p>...loading</p> 
-          : <div>
+          : <Fragment>
               <h2>{posts.activePost.title}</h2>
               <ReactMarkdown source={posts.activePost.body_text} />
-            </div>
+            </Fragment>
         }
       </div>
     )

@@ -19,6 +19,9 @@ class Home extends Component {
         <NavBar />
         <div className="Home__text-box">
           <h1 className="Home__header">Cafe Caligraphy</h1>
+          <h2 className="Home__sub_heading">
+            A JavaScript and Dev Culture Blog
+          </h2>
         </div>
         <div>{flashMessage.message}</div>
         { posts.isFetching 
